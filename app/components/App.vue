@@ -1,9 +1,10 @@
 <template>
     <Page>
         <ActionBar title="Welcome to Yellow Bucket!" android:flat="true"/>
-        <TabView tabBackgroundColor="#05386B"
+        <TabView tabBackgroundColor="#ff0700"
                  androidSelectedTabHighlightColor="#379683"
-                 tabTextColor="#EDF5E1"
+                 tabTextColor="#000000"
+                 tabText-align="center"
                  selectedTabTextColor="#EDF5E1">
             <TabViewItem title="Movies">
                 <movie-component :movies="movies"></movie-component>
@@ -33,7 +34,7 @@
     function Movie({id, title,length, description}) {
         this.id = parseInt(id);
         this.title = title;
-        this.length = length;
+        this.length = length + " mins";
         this.description = description;
     }
     export default {
@@ -49,7 +50,7 @@
             }
         },
         mounted() {
-            axios.get("https://codeflare.tech/api/customers").then(result => {
+            axios.get("https://rckennell.com/api/customers").then(result => {
                 result.data.forEach(customer => {
                 console.log(customer.data);
             this.customers.push(new Customer(customer));
@@ -58,10 +59,10 @@
             error => {
                 console.error(error);
             }),
-            axios.get("https://codeflare.tech/api/movies").then(result => {
+            axios.get("https://rckennell.com/api/movies").then(result => {
                 result.data.forEach(movie => {
                 console.log(movie.data);
-            this.movies.push(new Movie(movie));
+                this.movies.push(new Movie(movie));
         })
         }, error => {
                 console.error(error);
@@ -71,32 +72,19 @@
             MovieComponent,
             CustomerComponent,
         }
-        /*movieMount() {
-         axios.get("https://codeflare.tech/api/movies").then(result => {
-         result.data.forEach(movie => {
-         console.log(movie.data);
-         this.movies.push(new Movie(movie));
-         })
-         }, error => {
-         console.error(error);
-         })
-         },
-         components: {
-         MovieComponent,
-         CustomerComponent,
-         }*/
     }
 </script>
 
 <style scoped>
     ActionBar {
-        background-color: #5CDB95;
-        color: #EDF5E1;
+        background-color: #f8ff00;
+        color: #000000;
+        text-align: center;
     }
     .message {
         vertical-align: center;
         text-align: center;
-        font-size: 20;
+        font-size: 36;
         color: #666666;
     }
     .label-text {

@@ -1,8 +1,9 @@
 <template>
-    <GridLayout columns="*, *" rows="auto" width="100%">
-        <Label @onTap="onTap" :text="movie.title" row="0" col="0" class="list-group-item-heading label-text"
+    <GridLayout columns="3*, 9*" rows="*, *" width="100%">
+    <Image @onTap="onTap" :src="imageUrl" row="0" col="0" rowSpan="3"  class="thumbnail"/>
+        <Label @onTap="onTap" :text="movie.title" row="0" col="1" class="list-group-item-heading label-text"
                style="width: 60%"/>
-        <Label @onTap="onTap" :text="movie.length" row="0" col="1" class="list-group-item-heading label-text"
+        <Label @onTap="onTap" :text="movie.length" row="1" col="1" class="list-group-item-heading label-text"
                style="width: 60%"/>
     </GridLayout>
 </template>
@@ -12,6 +13,11 @@
     export default {
         data() {
             return {}
+        },
+        computed: {
+            imageUrl: function() {
+                return "https://codeflare.tech/images/movie_" + this.movie.id + ".jpg";
+            },
         },
         methods: {
             onTap: function () {

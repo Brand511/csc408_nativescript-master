@@ -53,7 +53,7 @@
 <style scoped lang="scss">
     ActionBar
     {
-        background-color: #5CDB95;
-        color: #EDF5E1;
+        background-color: #f8ff00;
+        color: #000000;
     }
 </style>

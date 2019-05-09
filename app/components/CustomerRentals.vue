@@ -56,5 +56,10 @@
 </script>
 
 <style scoped lang="scss">
+ActionBar {
+        background-color: #f8ff00;
+        color: #000000;
+        text-align: center;
+    }
 
 </style>
